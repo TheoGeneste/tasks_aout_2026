@@ -1,0 +1,16 @@
+1. Dans users.route.js
+  - Créé une route PATCH qui appelle une fonction de users.controller.js
+
+4. Dans users.controller.js
+ - Créé une function asynchrone qui est utiliser dans le fichier routes
+ - Dans cette function on met un try/catch
+ - on créé une constante qui récupère le l'id dans les parametre
+ - on créé une constante qui récupère les infos du body de la request
+ - en renvoie les valeur avec un res.json
+ - exporter la function
+
+5. Dans users.model.js
+ - Créé la function utiliser dans le controller
+ - Faire la query sql préparé (?????)
+ - renvoyer ce qui a été mis a jour
+ - exporter la function

@@ -1,0 +1,30 @@
+1. Créé les fichiers suivants 
+ - Routes/users.route.js
+ - Controllers/users.controller.js
+ - Models/users.model.js
+
+2. Dans index.js 
+ - Importer users.route.js
+ - Ajouter une ligne app.use("/chemin-voulu", Router de users.route.js)
+
+3. Dans users.route.js
+  - Importer express
+  - Importer users.controller.js
+  - Créé une constante qui accuille le Router
+  - Créé une route GET qui appelle une fonction de users.controller.js
+  - exporter le router
+
+4. Dans users.controller.js
+ - Importer users.model.js
+ - Créé une function asynchrone qui est utiliser dans le fichier routes
+ - Dans cette function on met un try/catch
+ - on créé une constante qui récupère le resutalt du modele
+ - en renvoie les valeur avec un res.json
+ - exporter la function
+
+5. Dans users.model.js
+ - Importer Db.js
+ - Créé la function utiliser dans le controller
+ - Faire la query sql
+ - renvoyer les rows
+ - exporter la function
