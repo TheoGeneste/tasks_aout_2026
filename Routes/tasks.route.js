@@ -12,7 +12,7 @@ router.get('/:id', TaskController.getById);
 router.patch('/:id', TaskController.update);
 
 // DELETE /tasks/:id -> Je supprime une tache via son Id
-router.delete('/id', TaskController.delete);
+router.delete('/:id', TaskController.deleteTask);
 
 // POST /tasks -> J'ajoute une tache
 router.post('/', TaskController.insert);
