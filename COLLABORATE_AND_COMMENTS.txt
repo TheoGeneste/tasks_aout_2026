@@ -1,0 +1,89 @@
+Entité collaborate 
+==================
+
+1. Créer les fichiers suivants
+ - Routes/collaborate.route.js
+ - Controllers/collaborate.controller.js
+ - Models/collaborate.model.js
+
+2. Dans index.js
+ - Importer Routes/collaborate.route.js
+ - Ajouter une ligne app.use("/collaborate", CollaborateRoute)
+
+3. Dans Routes/collaborate.route.js
+ - Importer express et Controllers/collaborate.controller.js
+ - Créer un router avec express.Router()
+ - Créer une route GET / qui appelle la fonction getAll du controller
+ - Créer une route PATCH /:userId/:taskId qui appelle la fonction update du controller
+ - Exporter le router
+
+4. Dans Controllers/collaborate.controller.js
+ - Importer Models/collaborate.model.js
+ - Créer une fonction asynchrone getAll utilisée par la route GET
+ - Dans cette fonction, utiliser un try/catch
+ - Récupérer le résultat du modèle et renvoyer les associations avec res.json()
+ - Créer une fonction asynchrone update utilisée par la route PATCH OU POST/DELETE
+ - Récupérer userId et taskId dans les paramètres de la route
+ - Récupérer dans le body le nouvel identifiant utilisateur et/ou tâche
+ - Vérifier que l'association à modifier existe
+ - Appeler la fonction update du modèle et renvoyer le résultat avec res.json()
+ - En cas d'erreur, renvoyer une réponse d'erreur adaptée
+ - Exporter les fonctions
+
+5. Dans Models/collaborate.model.js
+ - Importer Config/db.js
+ - Créer la fonction getAll utilisée par le controller
+ - Faire une requête SQL pour récupérer col_user et col_task dans la table collaborate
+ - Créer la fonction getById pour rechercher une association avec col_user et col_task
+ - Créer la fonction update utilisée par le controller
+ - Faire une requête SQL préparée qui modifie col_user et/ou col_task en utilisant les deux anciennes valeurs comme critères
+ - Renvoyer les rows ou le résultat de la requête
+ - Exporter les fonctions
+
+La table collaborate utilise une clé primaire composée de col_user et col_task.
+Il faut donc fournir ces deux identifiants dans l'URL pour désigner l'association
+à modifier. Le body PATCH contient le nouvel userId et/ou le nouveau taskId.
+
+
+Entité comments
+===============
+
+1. Créer les fichiers suivants
+ - Routes/comments.route.js
+ - Controllers/comments.controller.js
+ - Models/comments.model.js
+
+2. Dans index.js
+ - Importer Routes/comments.route.js
+ - Ajouter une ligne app.use("/comments", CommentsRoute)
+
+3. Dans Routes/comments.route.js
+ - Importer express et Controllers/comments.controller.js
+ - Créer un router avec express.Router()
+ - Créer une route GET / qui appelle la fonction getAll du controller
+ - Créer une route PATCH /:id qui appelle la fonction update du controller
+ - Exporter le router
+
+4. Dans Controllers/comments.controller.js
+ - Importer Models/comments.model.js
+ - Créer une fonction asynchrone getAll utilisée par la route GET
+ - Dans cette fonction, utiliser un try/catch
+ - Récupérer le résultat du modèle et renvoyer les commentaires avec res.json()
+ - Créer une fonction asynchrone update utilisée par la route PATCH
+ - Récupérer l'id du commentaire dans les paramètres de la route
+ - Récupérer le nouveau texte du commentaire dans le body
+ - Vérifier que le commentaire à modifier existe
+ - Appeler la fonction update du modèle et renvoyer le résultat avec res.json()
+ - En cas d'erreur, renvoyer une réponse d'erreur adaptée
+ - Exporter les fonctions
+
+5. Dans Models/comments.model.js
+ - Importer Config/db.js
+ - Créer la fonction getAll utilisée par le controller
+ - Faire une requête SQL pour récupérer co_id, co_comment, co_user et co_task
+   dans la table comments
+ - Créer la fonction getById pour rechercher un commentaire avec co_id
+ - Créer la fonction update utilisée par le controller
+ - Faire une requête SQL préparée qui modifie co_comment en fonction de co_id
+ - Renvoyer les rows ou le résultat de la requête
+ - Exporter les fonctions

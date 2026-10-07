@@ -227,6 +227,111 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "Collaborates",
+      "item": [
+        {
+          "name": "GET_ALL",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/collaborates",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "collaborates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET_BY_TASK_ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/collaborates/task/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "collaborates",
+                "task",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET_BY_USER_ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/collaborates/user/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "collaborates",
+                "user",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST_COLLABORATE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"user\" : 4,\r\n    \"task\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL}}/collaborates",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "collaborates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE_COLLABORATE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL}}/collaborates/4/1",
+              "host": [
+                "{{URL}}"
+              ],
+              "path": [
+                "collaborates",
+                "4",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "variable": [
