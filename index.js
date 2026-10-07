@@ -6,6 +6,7 @@ import dotenv from 'dotenv'
 import TasksRoute from './Routes/tasks.route.js'
 import UsersRoute from './Routes/users.route.js'
 import collaborateRoute from './Routes/collaborate.route.js'
+import commentsRoute from './Routes/comments.route.js'
 // Je créé la varible qui va accueillir mes parametres de serveur
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use("/tasks", TasksRoute);
 app.use("/users", UsersRoute);
 app.use("/collaborates", collaborateRoute);
-
+app.use("/comments", commentsRoute);
 // Je créé une route sur le / pour juste voir le status de mon api
 app.get("/", (req,res) => {
     res.json({status : "OK"})
