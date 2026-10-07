@@ -11,6 +11,11 @@ async function getById(id) {
     return rows;
 }
 
+async function getByLogin(login) {
+    const [rows] = await Db.query(`SELECT us_id, us_username, us_password, us_email 
+                                    FROM users WHERE us_username = ?`, [login]);
+    return rows[0];
+}
 
 async function update(id, user) {
     const updated = await Db.query("UPDATE users SET us_username = ?, us_email=? WHERE us_id=?",
@@ -33,5 +38,6 @@ export default {
     getById,
     update,
     insert,
-    deleteUser
+    deleteUser,
+    getByLogin
 }

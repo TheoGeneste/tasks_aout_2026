@@ -7,6 +7,8 @@ import TasksRoute from './Routes/tasks.route.js'
 import UsersRoute from './Routes/users.route.js'
 import collaborateRoute from './Routes/collaborate.route.js'
 import commentsRoute from './Routes/comments.route.js'
+import authRoute from './Routes/auth.route.js'
+import checkToken from './Middleware/auth.middleware.js'
 // Je créé la varible qui va accueillir mes parametres de serveur
 const app = express();
 
@@ -16,10 +18,11 @@ dotenv.config();
 // J'utilise le middleware express.json() pour que mon api utilise le JSON
 app.use(express.json());
 // Je dit que toutes les routes de mon fichier TasksRoute commencerons par /tasks
-app.use("/tasks", TasksRoute);
-app.use("/users", UsersRoute);
-app.use("/collaborates", collaborateRoute);
-app.use("/comments", commentsRoute);
+app.use("/tasks",checkToken, TasksRoute);
+app.use("/users",checkToken, UsersRoute);
+app.use("/collaborates",checkToken, collaborateRoute);
+app.use("/comments",checkToken, commentsRoute);
+app.use("/auth", authRoute);
 // Je créé une route sur le / pour juste voir le status de mon api
 app.get("/", (req,res) => {
     res.json({status : "OK"})
